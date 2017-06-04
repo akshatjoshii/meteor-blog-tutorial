@@ -1,0 +1,12 @@
+<template name="home">
+    {{#markdown}}## Welcome to my Blog Here{{/markdown}}
+    {{#markdown}}we will talk about latest discoveries of JS world.{{/markdown}}
+
+    {{#each postsList}}
+        {{> postInList}}
+    {{/each}}
+
+    <button class="lazyload">
+        Load More
+    </button>
+</template>
