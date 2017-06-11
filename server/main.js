@@ -54,5 +54,21 @@ Meteor.startup(() => {
             Posts.insert(post);
         });
     }
+
+    if(Meteor.users.find().count() === 0) {
+        console.log('Created Admin user');
+        Accounts.createUser({
+            username: 'johndoe',
+            email: 'johndoe@example.com',
+            password: '1234',
+            profile: {
+                name: 'John Doe'
+            }
+        });
+        // add the roles to our user
+        Meteor.users.update(userId, {$set: {
+            roles: {admin: true},
+        }})
+    }
 });
 

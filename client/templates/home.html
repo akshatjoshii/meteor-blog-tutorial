@@ -2,6 +2,10 @@
     {{#markdown}}## Welcome to my Blog Here{{/markdown}}
     {{#markdown}}we will talk about latest discoveries of JS world.{{/markdown}}
 
+    {{#if currentUser.roles.admin}}
+        <a href="/create-post" class="createNewPost">Create new post</a>
+    {{/if}}
+
     {{#each postsList}}
         {{> postInList}}
     {{/each}}
